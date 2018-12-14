@@ -14,16 +14,23 @@ footer {
 .fa-cog {
   color: white;
 }
-
 button {
   
 }
-
+#weather-function {
+  margin-left: 80%;
+}
 #profile-picture {
   background-color: gray;
   display: inline;
 }
+
 @media (max-width: 767px) {
+  #weather-function {
+    text-align: center;
+    margin-left: 0%;
+  }
+
   #home {
     display: none;
   }
