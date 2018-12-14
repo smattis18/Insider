@@ -8,6 +8,9 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: false
       },
+      giphy_URL: {
+        type: DataTypes.STRING,
+      },
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal('NOW()')
