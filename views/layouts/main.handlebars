@@ -16,6 +16,7 @@
   <!--Weather Theme Change-->
   <div id="weather-function">
     <p id="weather-text">Change the page's theme based on the weather!</p>
+    <p id="user-city"></p>
     <input type="text" id="weather-city" placeholder="Type in your city!">
     <br>
     <br>
@@ -37,6 +38,7 @@
             console.log("######################################")
             console.log(response)
             var currentWeather = response.weather[0].main
+            $("#user-city").text("The city of " + userCity + "'s weather is currently " + currentWeather)
             console.log(currentWeather)
         if (currentWeather === "Clear") {
             $(".fa-cog").css("color", "lightblue")
@@ -46,6 +48,8 @@
             $(".faButton").css("color", "lightblue")
             $("#profileFooter").css("color", "lightblue")
             $("#weather-text").css("color", "lightblue")
+            $("#profilePicture").css("color", "lightblue")
+            $("#user-city").css("color", "lightblue")
         } else if (currentWeather === "Clouds") {
             $(".fa-cog").css("color", "grey")
             $("#title").css("color", "grey")
@@ -54,14 +58,18 @@
             $(".faButton").css("color", "grey")
             $("#profileFooter").css("color", "grey")
             $("#weather-text").css("color", "grey")
+            $("#profilePicture").css("color", "grey")
+            $("#user-city").css("color", "grey")
         } else if (currentWeather === "Rain") {
-            $(".fa-cog").css("color", "darkblue")
-            $("#title").css("color", "darkblue")
-            $("#topnav").css("border-bottom-color", "darkblue")
-            $("footer").css("border-top-color", "darkblue")
-            $(".faButton").css("color", "darkblue")
-            $("#profileFooter").css("color", "darkblue")
-            $("#weather-text").css("color", "darkblue")
+            $(".fa-cog").css("color", "rgb(3, 74, 236)")
+            $("#title").css("color", "rgb(3, 74, 236)")
+            $("#topnav").css("border-bottom-color", "rgb(3, 74, 236)")
+            $("footer").css("border-top-color", "rgb(3, 74, 236)")
+            $(".faButton").css("color", "rgb(3, 74, 236)")
+            $("#profileFooter").css("color", "rgb(3, 74, 236)")
+            $("#weather-text").css("color", "rgb(3, 74, 236)")
+            $("#profilePicture").css("color", "rgb(3, 74, 236)")
+            $("#user-city").css("color", "rgb(3, 74, 236)")
         }  
       })
     })
@@ -76,6 +84,7 @@
         $(".faButton").css("color", "white")
         $("#profileFooter").css("color", "white")
         $("#weather-text").css("color", "white")
+        $("#user-city").empty()
     })
   </script>
 
