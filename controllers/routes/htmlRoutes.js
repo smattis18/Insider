@@ -10,7 +10,7 @@ module.exports = function(app) {
     //   res.render("login")
     // });
 
-    // app.get("/profile", function(req, res) {
-    //   res.render("profile")
-    // })
+    app.get("/myprofile", function(req, res) {
+      res.render("myprofile")
+    })
   };
