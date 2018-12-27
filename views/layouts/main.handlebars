@@ -27,7 +27,7 @@
   {{> footer}}
 
   <script>
-    // Weather test
+    // Weather API
     $("#search-weather").on("click", function() {
         var userCity = $("#weather-city").val().toLowerCase()
         console.log(userCity)
@@ -38,7 +38,7 @@
             console.log("######################################")
             console.log(response)
             var currentWeather = response.weather[0].main
-            $("#user-city").text("The city of " + userCity + "'s weather is currently " + currentWeather)
+            // $("#user-city").text("The city of " + userCity + "'s weather is currently " + currentWeather)
             console.log(currentWeather)
         if (currentWeather === "Clear") {
             $(".fa-cog").css("color", "lightblue")
@@ -84,6 +84,7 @@
         $(".faButton").css("color", "white")
         $("#profileFooter").css("color", "white")
         $("#weather-text").css("color", "white")
+        $("#profilePicture").css("color", "white")
         $("#user-city").empty()
     })
   </script>
