@@ -8,7 +8,67 @@
         <a href="/"><i id="home" class="faButton fas fa-home icon-cog"></i></a>
         <a href="/api/user"><i id="search" class="faButton fas fa-search icon-cog"></i></a>
         <a href="/"><i id="notifications" class="faButton fas fa-bolt icon-cog"></i></a>
-        <a href="/"><i id="post" class="faButton fas fa-plus icon-cog"></i></a>
+
+        <a href="/" data-featherlight="<div id='lightbox'>
+
+            <h4 id='lightbox-header'>Share a Post!</h4>
+            <textarea rows='4' cols='50'></textarea>
+            <button id='post-button'>Post</button>
+
+            <h4 id='lightbox-header'>Or a Gif!</hr>
+            <div id='search-function'>
+                <input type='text' id='giphy-search'>
+                <button id='search-button'>Search</button>
+                <button id='clear-gifs'>Clear</button>
+                <div id='gifs-appear-here'></div>
+            </div>
+
+            <script
+                src='https://code.jquery.com/jquery-3.3.1.min.js'
+                integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+                crossorigin='anonymous'>
+            </script>
+
+            <script>
+                $('#search-button').on('click', function () {
+                event.preventDefault()
+                $('#gifs-appear-here').empty()
+                var search = $('#giphy-search').val()
+                var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10'
+                console.log(queryURL)
+
+                $.ajax({
+                    url: queryURL,
+                    method: 'GET'
+                }).then(function (response) {
+                    var results = response.data
+                    for (var i = 0; i < results.length; i++) {
+                            var gifDiv = $('<div>')
+                            var gifImage = $('<img>')
+                            gifImage.attr('src', results[i].images.fixed_height.url);
+                            gifDiv.append(gifImage)
+                            $('#gifs-appear-here').prepend(gifDiv)
+                            gifDiv.addClass('gifs')
+                            gifDiv.attr('data-imgurl', results[i].images.fixed_height.url)
+                        }
+                    })
+                })
+
+                $(document).on('click', '.gifs', function (req, res) {
+                    var gifURL = $(this).data('imgurl')
+                    console.log('------------------------')
+                    console.log(gifURL)
+                    console.log('------------------------')
+                })
+
+                $('#clear-gifs').on('click', function () {
+                    $('#gifs-appear-here').empty()
+                    $('#giphy-search').val('')
+                })
+            </script>
+
+        </div>"><i id="post" class="faButton fas fa-plus icon-cog"></i></a>
+
     </div>
 
 </nav>
