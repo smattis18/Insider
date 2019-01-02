@@ -9,88 +9,20 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    {{> topnav}}
+
     {{{body}}}
-
-    <!--Weather Theme Change-->
-    <div id="weather-function">
-        <p id="weather-text">Change the page's theme based on the weather!</p>
-        <p id="user-city"></p>
-        <input type="text" id="weather-city" placeholder="Type in your city!">
-        <br>
-        <br>
-        <button id="search-weather">Search</button>
-        <button id="reset-color">Reset Theme</button>
-    </div>
-
-    {{> footer}}
-
-    <script>
-        // Weather API
-        $("#search-weather").on("click", function () {
-            var userCity = $("#weather-city").val().toLowerCase()
-            console.log(userCity)
-            $.ajax({
-                url: "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&APPID=0aaf6ed86a35a5a59f48151fb51f3428",
-                method: "GET"
-            }).then(function (response) {
-                console.log("######################################")
-                console.log(response)
-                var currentWeather = response.weather[0].main
-                // $("#user-city").text("The city of " + userCity + "'s weather is currently " + currentWeather)
-                console.log(currentWeather)
-                if (currentWeather === "Clear") {
-                    $(".fa-cog").css("color", "lightblue")
-                    $("#title").css("color", "lightblue")
-                    $("#topnav").css("border-bottom-color", "lightblue")
-                    $("footer").css("border-top-color", "lightblue")
-                    $(".faButton").css("color", "lightblue")
-                    $("#profileFooter").css("color", "lightblue")
-                    $("#weather-text").css("color", "lightblue")
-                    $("#profilePicture").css("color", "lightblue")
-                    $("#user-city").css("color", "lightblue")
-                } else if (currentWeather === "Clouds") {
-                    $(".fa-cog").css("color", "grey")
-                    $("#title").css("color", "grey")
-                    $("#topnav").css("border-bottom-color", "grey")
-                    $("footer").css("border-top-color", "grey")
-                    $(".faButton").css("color", "grey")
-                    $("#profileFooter").css("color", "grey")
-                    $("#weather-text").css("color", "grey")
-                    $("#profilePicture").css("color", "grey")
-                    $("#user-city").css("color", "grey")
-                } else if (currentWeather === "Rain") {
-                    $(".fa-cog").css("color", "rgb(3, 74, 236)")
-                    $("#title").css("color", "rgb(3, 74, 236)")
-                    $("#topnav").css("border-bottom-color", "rgb(3, 74, 236)")
-                    $("footer").css("border-top-color", "rgb(3, 74, 236)")
-                    $(".faButton").css("color", "rgb(3, 74, 236)")
-                    $("#profileFooter").css("color", "rgb(3, 74, 236)")
-                    $("#weather-text").css("color", "rgb(3, 74, 236)")
-                    $("#profilePicture").css("color", "rgb(3, 74, 236)")
-                    $("#user-city").css("color", "rgb(3, 74, 236)")
-                }
-            })
-        })
-
-        // Returns to default color theme
-        $("#reset-color").on("click", function () {
-            $("#weather-city").val("")
-            $(".fa-cog").css("color", "white")
-            $("#title").css("color", "white")
-            $("#topnav").css("border-bottom-color", "white")
-            $("footer").css("border-top-color", "white")
-            $(".faButton").css("color", "white")
-            $("#profileFooter").css("color", "white")
-            $("#weather-text").css("color", "white")
-            $("#profilePicture").css("color", "white")
-            $("#user-city").empty()
-        })
-    </script>
-
+    
+    <script src="//code.jquery.com/jquery-latest.js"></script>
     <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
