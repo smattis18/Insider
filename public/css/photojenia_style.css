@@ -19,6 +19,19 @@ footer {
   color: white;
 }
 
+#firstFormLabel {
+  margin-top: 50px;
+}
+
+.formLabel {
+  margin-left: 40px;
+}
+
+.myprofForm {
+  width: 50%;
+  margin-left: 60px;
+}
+
 #topnav2 {
   height: 60px;
   display: flex;

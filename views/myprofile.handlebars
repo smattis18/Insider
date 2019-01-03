@@ -67,14 +67,33 @@
                 })
             </script>
 
-        </div>"><i id="post" class="faButton fas fa-plus icon-cog"></i></a>
+        </div>"><i
+                id="post" class="faButton fas fa-plus icon-cog"></i></a>
     </div>
 
 </nav>
 
-<h1>Hello World! This is my profile page.</h1>
+<form>
+    <div class="form-group">
+        <label id="firstFormLabel" class="formLabel">First Name</label>
+        <input type="text" class="myprofForm form-control">
+    </div>
+    <div class="form-group">
+        <label class="formLabel">Last Name</label>
+        <input type="text" class="myprofForm form-control">
+    </div>
+    <div class="form-group">
+        <label class="formLabel">Username</label>
+        <input type="text" class="myprofForm form-control">
+    </div>
+    <div class="form-group">
+        <label class="formLabel">Email</label>
+        <input type="text" class="myprofForm form-control">
+    </div>
+</form>
 
-<!--Weather Theme Change-->
+
+{{!-- <!--Weather Theme Change-->
 <div id="weather-function">
     <p id="weather-text">Change the page's theme based on the weather!</p>
     <p id="user-city"></p>
@@ -145,7 +164,7 @@
         $("#profilePicture").css("color", "white")
         $("#user-city").empty()
     })
-</script>
+</script> --}}
 
 <footer class="footer">
     <div class="container">
