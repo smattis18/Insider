@@ -37,6 +37,15 @@ footer {
   display: inline;
 }
 
+#lightbox-header {
+  color: black;
+}
+
+.gifs {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 @media (max-width: 767px) {
   #weather-function {
     text-align: center;
@@ -129,3 +138,4 @@ footer {
     display: none;
   }
 }
+
