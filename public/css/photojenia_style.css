@@ -11,6 +11,21 @@ footer {
   background-color: rgb(54, 48, 48);
 }
 
+#clickHereLogin {
+  color: white;
+}
+
+#clickHereSignup {
+  color: white;
+}
+
+#topnav2 {
+  height: 60px;
+  display: flex;
+  background-color: rgb(54, 48, 48);
+  border-bottom: white 3px solid;
+}
+
 .icon-cog {
   color: white;
 }
