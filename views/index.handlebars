@@ -11,7 +11,7 @@
     <a href="/" data-featherlight="<div id='lightbox'>
 
             <h4 id='lightbox-header'>Share a Post!</h4>
-            <textarea rows='4' cols='50'></textarea>
+            <textarea rows='4' cols='50' id='post-text'></textarea>
             <button id='post-button'>Post</button>
 
             <h4 id='lightbox-header'>Or a Gif!</hr>
@@ -29,6 +29,11 @@
             </script>
 
             <script>
+                $('#post-button').on('click', function() {
+                  var post = $('#post-text').val()
+                  console.log(post)
+                })
+
                 $('#search-button').on('click', function () {
                 event.preventDefault()
                 $('#gifs-appear-here').empty()
