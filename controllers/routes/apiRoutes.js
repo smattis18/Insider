@@ -1,3 +1,4 @@
+var axios = require('axios')
 var db = require("../../models");
 var passport = require("../../config/passport");
 
@@ -84,6 +85,17 @@ module.exports = function (app) {
         res.json(new_post);
       });
     });
+
+    // Giphy call
+    // app.get("/api/giphy/:search", function (req, res) {
+    //   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + req.params.search + "&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10"
+    //   console.log(queryURL)
+    //   axios.get(queryURL)
+    //   .then(function(response) {
+    //     console.log(response)
+    //     res.json(response.data)
+    //   })
+    // })
 
     // // comment
     // app.post("/api/comment/:id", function(req, res) {

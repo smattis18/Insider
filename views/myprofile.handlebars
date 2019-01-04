@@ -8,7 +8,7 @@
         <a href="/"><i id="home" class="faButton fas fa-home icon-cog"></i></a>
         <a href="/api/user"><i id="search" class="faButton fas fa-search icon-cog"></i></a>
         <a href="/"><i id="notifications" class="faButton fas fa-bolt icon-cog"></i></a>
-        <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+        <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" type="text/css" rel="stylesheet" />
         <a href="/" data-featherlight="<div id='lightbox'>
 
             <h4 id='lightbox-header'>Share a Post!</h4>
@@ -31,8 +31,12 @@
 
             <script>
                 $('#post-button').on('click', function() {
+                  var postArray = []
                   var post = $('#post-text').val()
-                  console.log(post)
+                  postArray.push(post)
+                  console.log('--------------------')
+                  console.log(postArray)
+                  console.log('--------------------')
                 })
 
                 $('#search-button').on('click', function () {
@@ -40,7 +44,7 @@
                 $('#gifs-appear-here').empty()
                 var search = $('#giphy-search').val()
                 var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10'
-                console.log(queryURL)
+                {{!-- console.log(queryURL) --}}
 
                 $.ajax({
                     url: queryURL,
@@ -72,8 +76,8 @@
                 })
             </script>
 
-        </div>"><i
-                id="post" class="faButton fas fa-plus icon-cog"></i></a>
+        </div>"><i id="post" class="faButton fas fa-plus icon-cog"></i></a>
+        
     </div>
 
 </nav>
