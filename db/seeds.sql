@@ -1,14 +1,14 @@
 USE photojenia_db;
 
 
-INSERT INTO users (screen_name, first_name, last_name, email)
-VALUES ("smattis", "steve", "mattis", "steve@example.com");
+INSERT INTO users (email, password, username, first_name, last_name)
+VALUES ("steve@example.com", "babysnakes1", "smattis", "steve", "mattis");
 
-INSERT INTO users (screen_name, first_name, last_name, email)
-VALUES ("thallmen", "cam", "hallmen", "cam@example.com");
+INSERT INTO users (email, password, username, first_name, last_name)
+VALUES ("cam@example.com", "babysnakes2", "thallmen", "cam", "hallmen");
 
-INSERT INTO users (screen_name, first_name, last_name, email)
-VALUES ("kneve327", "kiara", "perez", "kiara@example.com");
+INSERT INTO users (email, password, username, first_name, last_name)
+VALUES ("kiara@example.com", "babysnakes3", "kneve327", "kiara", "perez");
 
 
 INSERT INTO posts (post_header, post_body, giphy_URL, UserId)

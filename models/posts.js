@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    // UserId: {
+    //   type: DataTypes.INT,
+    //   allowNull: false
+    // },
     giphy_URL: {
       type: DataTypes.STRING,
     },
