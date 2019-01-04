@@ -2,8 +2,8 @@ require("dotenv").config();
 var express = require('express');
 var exphbs = require('express-handlebars');
 var session = require('express-session');
-var passport = require('passport');
-require("dot-env");
+var passport = require('./config/passport');
+// require("dot-env");
 var db = require('./models');
 
 var app = express();

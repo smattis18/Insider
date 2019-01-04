@@ -4,7 +4,7 @@ var db = require("../../models");
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
