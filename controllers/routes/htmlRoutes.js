@@ -36,6 +36,7 @@ module.exports = function(app) {
       res.redirect("/myprofile")
     }
     res.render("myprofile");
+    return ("myprofile")
   });
 
   // Here we've add our isAuthenticated middleware to this route.
