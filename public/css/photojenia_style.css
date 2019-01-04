@@ -11,6 +11,26 @@ footer {
   background-color: rgb(54, 48, 48);
 }
 
+#fnButton {
+  width: 50%;
+  height: 35px;
+}
+
+#lnButton {
+  width: 50%;
+  height: 35px;
+}
+
+#unButton {
+  width: 50%;
+  height: 35px;
+}
+
+#emailButton {
+  width: 50%;
+  height: 35px;
+}
+
 #clickHereLogin {
   color: white;
 }
@@ -23,13 +43,16 @@ footer {
   margin-top: 50px;
 }
 
-.formLabel {
-  margin-left: 40px;
+#secondFormLabel {
+  margin-top: 20px;
 }
 
-.myprofForm {
-  width: 50%;
-  margin-left: 60px;
+#thirdFormLabel {
+  margin-top: 20px;
+}
+
+#fourthFormLabel {
+  margin-top: 20px;
 }
 
 #topnav2 {
@@ -60,6 +83,16 @@ footer {
 }
 
 @media (max-width: 767px) {
+
+  .formLabel {
+    margin-left: 80px;
+  }
+
+  .myprofForm {
+    width: 50%;
+    margin-left: 100px;
+  }
+
   #weather-function {
     text-align: center;
     margin-left: 0%;
@@ -108,6 +141,15 @@ footer {
 }
 
 @media (min-width: 768px) {
+
+  .formLabel {
+    margin-left: 300px;
+  }
+
+  .myprofForm {
+    margin-left: 350px;
+  }
+
   #topnav {
     display: flex;
     background-color: rgb(54, 48, 48);
