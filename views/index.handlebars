@@ -30,12 +30,13 @@
 
             <script>
                 $('#post-button').on('click', function() {
-                  var postArray = []
                   var post = $('#post-text').val()
-                  postArray.push(post)
                   console.log('--------------------')
-                  console.log(postArray)
+                  console.log(post)
                   console.log('--------------------')
+                  $('#posts-div').append('<div class=my-post>' + post + '</div>')
+                  {{!-- This broke the program in such a catastrophic way that I left it
+                  $('#posts-div').append(post).add('div').addClass('my-post') --}}
                 })
 
                 $('#search-button').on('click', function () {
@@ -67,6 +68,7 @@
                     console.log('------------------------')
                     console.log(gifURL)
                     console.log('------------------------')
+                    $('#posts-div').append('<img class=my-gif src=' + gifURL + '></div>')
                 })
 
                 $('#clear-gifs').on('click', function () {
@@ -112,6 +114,24 @@
   <button id="search-weather">Search</button>
   <button id="reset-color">Reset Theme</button>
 </div>
+
+<div id="posts-div">
+  <!--Posts and gifs go here-->
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">
+      <div id="footerButtons" class="d-flex justify-content-between">
+        <a href="/"><i id="homeFooter" class="faButton fas fa-home icon-cog"></i></a>
+        <a href="/api/user"><i id="searchFooter" class="faButton fas fa-search icon-cog"></i></a>
+        <a href="/"><i id="postFooter" class="faButton fas fa-plus icon-cog"></i></a>
+        <a href="/"><i id="notificationsFooter" class="faButton fas fa-bolt icon-cog"></i></a>
+        <a href="/myprofile"><i id="profileFooter" class="fas fa-user icon-cog"></i></a>
+      </div>
+    </span>
+  </div>
+</footer>
 
 <script>
   // Weather API
@@ -174,19 +194,5 @@
     $("#user-city").empty()
   })
 </script>
-
-<footer class="footer">
-  <div class="container">
-    <span class="text-muted">
-      <div id="footerButtons" class="d-flex justify-content-between">
-        <a href="/"><i id="homeFooter" class="faButton fas fa-home icon-cog"></i></a>
-        <a href="/api/user"><i id="searchFooter" class="faButton fas fa-search icon-cog"></i></a>
-        <a href="/"><i id="postFooter" class="faButton fas fa-plus icon-cog"></i></a>
-        <a href="/"><i id="notificationsFooter" class="faButton fas fa-bolt icon-cog"></i></a>
-        <a href="/myprofile"><i id="profileFooter" class="fas fa-user icon-cog"></i></a>
-      </div>
-    </span>
-  </div>
-</footer>
 
 <script src="/js/index.js"></script>
