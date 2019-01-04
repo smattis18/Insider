@@ -30,8 +30,12 @@
 
             <script>
                 $('#post-button').on('click', function() {
+                  var postArray = []
                   var post = $('#post-text').val()
-                  console.log(post)
+                  postArray.push(post)
+                  console.log('--------------------')
+                  console.log(postArray)
+                  console.log('--------------------')
                 })
 
                 $('#search-button').on('click', function () {
@@ -39,7 +43,7 @@
                 $('#gifs-appear-here').empty()
                 var search = $('#giphy-search').val()
                 var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10'
-                console.log(queryURL)
+                {{!-- console.log(queryURL) --}}
 
                 $.ajax({
                     url: queryURL,
