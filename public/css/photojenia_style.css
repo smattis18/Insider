@@ -11,6 +11,34 @@ footer {
   background-color: rgb(54, 48, 48);
 }
 
+#clickHereLogin {
+  color: white;
+}
+
+#clickHereSignup {
+  color: white;
+}
+
+#firstFormLabel {
+  margin-top: 50px;
+}
+
+.formLabel {
+  margin-left: 40px;
+}
+
+.myprofForm {
+  width: 50%;
+  margin-left: 60px;
+}
+
+#topnav2 {
+  height: 60px;
+  display: flex;
+  background-color: rgb(54, 48, 48);
+  border-bottom: white 3px solid;
+}
+
 .icon-cog {
   color: white;
 }
@@ -20,6 +48,15 @@ footer {
 #profile-picture {
   background-color: gray;
   display: inline;
+}
+
+#lightbox-header {
+  color: black;
+}
+
+.gifs {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 767px) {
@@ -114,3 +151,4 @@ footer {
     display: none;
   }
 }
+
