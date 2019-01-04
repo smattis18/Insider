@@ -23,7 +23,8 @@ module.exports = function(app) {
       username: req.body.username,
       first_name: req.body.first_name,
       last_name: req.body.last_name
-    }).then(function() {
+    }).then(function(dbUser) {
+      console.log(dbUser.dataValues[0])
       res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
@@ -39,20 +40,25 @@ app.get("/logout", function(req, res) {
 });
 
 // Route for getting some data about our user to be used client side
-app.get("/api/user_data", function(req, res) {
-  if (!req.user) {
-    // The user is not logged in, send back an empty object
-    res.json({});
-  }
-  else {
+app.get("/api/users", function(req, res) {
+  // if (!req.user) {
+  //   // The user is not logged in, send back an empty object
+  //   res.json({});
+  // }
+  // else {
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
+    db.User.findAll({}).then(function (dbUser ){
+      res.json(dbUser
+        // email: req.users.email,
+        // first_name: req.users.first_name,
+        // last_name: req.users.last_name,
+        // username: req.users.username
+    )
+    
     });
   }
-});
+);
 };
 
 
