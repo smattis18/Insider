@@ -16,6 +16,8 @@ $(document).ready(function () {
     console.log("This click worksssss")
 
     $(".post-container").show();
+
+
   });
 
 });

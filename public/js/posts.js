@@ -9,24 +9,27 @@ $(document).ready(function () {
         post.push(data);
     }).then(function (data) {
 
+        $("#get-header").empty();
+
         for (var i = 0; i < data.length; i++) {
             console.log(data[i])
-            
-        printPost(data)
 
-        function printPost(data){
+            printPost(data)
 
-            var showPost = $("<div>")
-            showPost.addClass("view-post")
-            showPost.append("<div>" + data[i].post_header + "</div>")
-            showPost.append("<div>" + data[i].post_body + "</div>")
-            showPost.append("<div>" + data[i].giphy_URL + "</div>")
+            function printPost(data) {
 
-            $("#get-header").append(showPost)
-            
+               
+                var showPost = $("<div>")
+                showPost.addClass("view-post")
+                showPost.append("<div>" + data[i].post_header + "</div>")
+                showPost.append("<div>" + data[i].post_body + "</div>")
+                showPost.append("<div>" + data[i].giphy_URL + "</div>")
+
+                $("#get-header").append(showPost)
+
+            }
+
         }
-
-    }
 
     })
 
@@ -34,6 +37,8 @@ $(document).ready(function () {
 
     $("#post-button").on("click", function (event) {
         event.preventDefault();
+
+
         var postInfo = {
             post_header: $("#post-textHeader").val(),
             post_body: $("#post-textBody").val(),
@@ -42,6 +47,8 @@ $(document).ready(function () {
 
         console.log(postInfo)
 
+
+       
 
 
         // if (!postInfo.post_header || !postInfo.post_body) {
@@ -57,40 +64,49 @@ $(document).ready(function () {
 
             getPosts();
 
+            $.get("/api/post", function (data) {
+                console.log(data);
+                post.push(data);
+            }).then(function (data) {
+
+                $("#get-header").empty();
+
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i])
+
+                    printPost(data)
+
+                    function printPost(data) {
+
+                        
+                        var showPost = $("<div>")
+                        showPost.addClass("view-post")
+                        showPost.append("<div>" + data[i].post_header + "</div>")
+                        showPost.append("<div>" + data[i].post_body + "</div>")
+                        showPost.append("<div>" + data[i].giphy_URL + "</div>")
+
+                        $("#get-header").append(showPost)
+
+                    }
+
+                }
+
+            })
+
         });
 
 
+        $(".post-container").hide();
 
 
 
-        // $.post("/api/post", {
-
-        //     post_header: post_header,
-        //     post_body: post_body,
-        //     giphy_URL: giphy_URL
-        // }).then(function (data) {
-        //     window.location.replace(data);
-        //     // If there's an error, handle it by throwing up a bootstrap alert
-        // })
-        // .catch(handleLoginErr);
-
-        // userPost(postInfo.post_header, postInfo.post_body, postInfo.giphy_URL);
-        // post_header.val("");
-        // post_body.val("");
-        // giphy_URL.val("");
-        // console.log(giphy_URL: giphy_URL.val().trim())
+        
 
     });
-    // post_header, post_body, giphy_URL
-
-    // function userPost(post_header, post_body, giphy_URL) {
-
-    //     console.log("something might be working")
-
-    // }
+    
 
     function getPosts() {
-       
+
 
     }
 });
