@@ -8,95 +8,14 @@
     <a href="/"><i id="home" class="faButton fas fa-home icon-cog"></i></a>
     <a href="/api/user"><i id="search" class="faButton fas fa-search icon-cog"></i></a>
     <a href="/"><i id="notifications" class="faButton fas fa-bolt icon-cog"></i></a>
-    <a href="/" data-featherlight="<div id='lightbox'>
 
-            <h4 id='lightbox-header'>Share a Post!</h4>
-            <textarea rows='4' cols='50' id='post-text'></textarea>
-            <button id='post-button'>Post</button>
+    <div id="fa-plus"><a href="#" class="faButton fas fa-plus icon-cog"></a></div>
 
-            <h4 id='lightbox-header'>Or a Gif!</hr>
-            <div id='search-function'>
-                <input type='text' id='giphy-search'>
-                <button id='search-button'>Search</button>
-                <button id='clear-gifs'>Clear</button>
-                <div id='gifs-appear-here'></div>
-            </div>
 
-            <script
-                src='https://code.jquery.com/jquery-3.3.1.min.js'
-                integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-                crossorigin='anonymous'>
-            </script>
-
-            <script>
-                $('#post-button').on('click', function() {
-                  var post = $('#post-text').val()
-                  console.log(post)
-                })
-
-                $('#search-button').on('click', function () {
-                event.preventDefault()
-                $('#gifs-appear-here').empty()
-                var search = $('#giphy-search').val()
-                var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10'
-                console.log(queryURL)
-
-                $.ajax({
-                    url: queryURL,
-                    method: 'GET'
-                }).then(function (response) {
-                    var results = response.data
-                    for (var i = 0; i < results.length; i++) {
-                            var gifDiv = $('<div>')
-                            var gifImage = $('<img>')
-                            gifImage.attr('src', results[i].images.fixed_height.url);
-                            gifDiv.append(gifImage)
-                            $('#gifs-appear-here').prepend(gifDiv)
-                            gifDiv.addClass('gifs')
-                            gifDiv.attr('data-imgurl', results[i].images.fixed_height.url)
-                        }
-                    })
-                })
-
-                $(document).on('click', '.gifs', function (req, res) {
-                    var gifURL = $(this).data('imgurl')
-                    console.log('------------------------')
-                    console.log(gifURL)
-                    console.log('------------------------')
-                })
-
-                $('#clear-gifs').on('click', function () {
-                    $('#gifs-appear-here').empty()
-                    $('#giphy-search').val('')
-                })
-            </script>
-
-        </div>"><i id="post" class="faButton fas fa-plus icon-cog"></i></a>
   </div>
 
 </nav>
 
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-
-        {{!-- This part may have to be created in javascript
-        using jQuery but theoretically this is where the posts
-        would show --}}
-
-        <div>
-          <span id="profile-picture"></span>
-        </div>
-
-        <div>
-          <span id="post"></span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--Weather Theme Change-->
 <div id="weather-function">
@@ -171,6 +90,116 @@
   })
 </script>
 
+
+<div id="home">
+  <div id="postContainer" class="container">
+    {{!-- <div class="row"> --}}
+      {{!-- <div class="col-8 offset-1"> --}}
+
+        {{!-- This part may have to be created in javascript
+        using jQuery but theoretically this is where the posts
+        would show --}}
+
+        {{!-- <div>
+          <span id="profile-picture"></span>
+        </div> --}}
+
+        <div id="get-header">
+          <span id="post"></span>
+        </div>
+
+        <div id="get-body"></div>
+
+        <div id="get-gif"></div>
+
+        {{!--
+      </div> --}}
+      {{!-- </div> --}}
+  </div>
+</div>
+
+{{!-- *********************************************** --}}
+
+
+
+<div class="post-container">
+
+  <h4 id='post_header' class='lightbox-header'>Post Header</h4>
+  <textarea rows='1' cols='50' id='post-textHeader'></textarea>
+  <h4 id='post_body' class='lightbox-header'>Post Body</h4>
+  <textarea rows='2' cols='50' id='post-textBody'></textarea>
+  <button id='post-button'>Post</button>
+
+  <h4 id='gif_URL' class='lightbox-header'>Or Search For A Gif</h4>
+  <div id='search-function'>
+    <input type='text' id='giphy-search'>
+    <button id='search-button'>Search</button>
+    <button id='clear-gifs'>Clear</button>
+    <div id='gifs-appear-here'></div>
+  </div>
+
+</div>
+
+
+<script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+  crossorigin='anonymous'>
+
+
+
+  </script>
+
+<script>
+  $('#post-button').on('click', function () {
+    var post = $('#post-textHeader').val()
+    var post2 = $('#post-textBody').val()
+    console.log(post)
+    console.log(post2)
+  })
+
+  $('#search-button').on('click', function () {
+    event.preventDefault()
+    $('#gifs-appear-here').empty()
+    var search = $('#giphy-search').val()
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=FiDaJGdZm9CCACzTDlexL1LjaBfu4j9o&limit=10'
+    console.log(queryURL)
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).then(function (response) {
+      var results = response.data
+      for (var i = 0; i < results.length; i++) {
+        var gifDiv = $('<div>')
+        var gifImage = $('<img>')
+        gifImage.attr('src', results[i].images.fixed_height.url);
+        gifDiv.append(gifImage)
+        $('#gifs-appear-here').prepend(gifDiv)
+        gifDiv.addClass('gifs')
+        gifDiv.attr('data-imgurl', results[i].images.fixed_height.url)
+      }
+    })
+  })
+
+  $(document).on('click', '.gifs', function (req, res) {
+    var gifURL = $(this).data('imgurl')
+    console.log('------------------------')
+    console.log(gifURL)
+    console.log('------------------------')
+  })
+
+  $('#clear-gifs').on('click', function () {
+    $('#gifs-appear-here').empty()
+    $('#giphy-search').val('')
+  })
+</script>
+
+
+
+
+
+{{!-- ************************************** --}}
+
+
 <footer class="footer">
   <div class="container">
     <span class="text-muted">
@@ -186,3 +215,4 @@
 </footer>
 
 <script src="/js/index.js"></script>
+<script src="/js/posts.js"></script>

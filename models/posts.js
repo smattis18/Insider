@@ -8,21 +8,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    // UserId: {
-    //   type: DataTypes.INT,
-    //   allowNull: false
-    // },
+
     giphy_URL: {
       type: DataTypes.STRING,
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('NOW()')
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('NOW()')
+      allowNull: true
     }
+    // createdAt: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: sequelize.literal('NOW()')
+    // },
+    // updatedAt: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: sequelize.literal('NOW()')
+    // }
   });
 
   Post.associate = function(models) {
@@ -30,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     // When an Author is deleted, also delete any associated Posts
     Post.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
 
@@ -42,3 +40,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Post;
 };
+
