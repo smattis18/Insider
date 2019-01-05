@@ -2,14 +2,16 @@ body {
   background-color: rgb(54, 48, 48);
   color: white;
 }
+
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   border-top: white 3px solid;
   width: 100%;
   height: 60px;
   background-color: rgb(54, 48, 48);
 }
+
 
 #fnButton {
   width: 50%;
@@ -65,15 +67,25 @@ footer {
 .icon-cog {
   color: white;
 }
+
 #weather-function {
   margin-left: 80%;
 }
+
 #profile-picture {
   background-color: gray;
   display: inline;
 }
 
-#lightbox-header {
+#postContainer {
+  margin-top: 30px;
+  margin-left: 100px;
+  padding: 30px 60px 30px 80px;
+  width: 60%;
+  margin-bottom: 80px;
+}
+
+.lightbox-header {
   color: black;
 }
 
@@ -108,9 +120,9 @@ footer {
 @media (max-width: 767px) {
 
   .formLabel {
-    margin-left: 80px;
+    margin-left: 100px;
   }
-
+  
   .myprofForm {
     width: 50%;
     margin-left: 100px;
@@ -140,6 +152,9 @@ footer {
   .faButton {
     display: none;
   }
+  #fa-plus {
+    display: none;
+  }
 
   #topnav {
     display: flex;
@@ -166,7 +181,7 @@ footer {
 @media (min-width: 768px) {
 
   .formLabel {
-    margin-left: 300px;
+    margin-left: 350px;
   }
 
   .myprofForm {
@@ -189,6 +204,12 @@ footer {
     margin-right: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+
+  #fa-plus {
+    font-size: 24px;
+    margin-right: 50px;
+    color: white;
   }
 
   #profilePicture {
@@ -217,3 +238,27 @@ footer {
   }
 }
 
+#indexFooter {
+  margin-top: 100px;
+}
+
+.view-post{
+  background-color: gray;
+  margin-bottom: 40px;
+  padding: 20px 70px 20px 70px;
+}
+
+.post-container {
+  
+  margin-top: 40px;
+  margin-left: 25%;
+  padding: 30px 50px 30px 50px;
+  width: 35%;
+  background-color: white;
+  
+}
+
+#post-button {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
